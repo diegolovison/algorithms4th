@@ -222,13 +222,13 @@ public class FundamentalsExercicies {
         }
 
         // transposition
-        for (int j=0; j<n-1; j++) {
-            for (int i=j+1; i<m; i++) {
+        for (int i=0; i<m-1; i++) {
+            for (int j=i+1; j<n; j++) {
 
-                int temp = matrix[j][i];
+                int temp = matrix[i][j];
 
-                matrix[j][i] = matrix[i][j];
-                matrix[i][j] = temp;
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = temp;
             }
         }
 
