@@ -246,13 +246,20 @@ public class FundamentalsExercicies {
 
     /**
      * Write a static method lg() that takes an int value N as argument and returns
-     * the largest int not larger than the base-2 logarithm of N. Do not use Math.]
+     * the largest int not larger than the base-2 logarithm of N. Do not use Math.
      *
      * I will use math for pow.
      */
     @Test
     public void exer_1_1_14() {
 
+        int n = 9;
+
+        double result = MyMath.log10(n) / MyMath.log10(2);
+
+        assertEquals(Math.log10(n)/Math.log10(2), result, 0.000001);
+
+        assertEquals(3, (int)result);
     }
 
     /**
