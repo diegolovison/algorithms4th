@@ -10,7 +10,7 @@ import java.util.Locale;
 
 import static org.junit.Assert.*;
 
-public class FundamentalsExercicies {
+public class BasicProgrammingModelExercicies {
 
     /**
      * Give the value of each of the following expressions

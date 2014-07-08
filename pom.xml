@@ -25,6 +25,13 @@
             <version>3.2.5.RELEASE</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>edu.princeton.cs.introcs</groupId>
+            <artifactId>stdlib-package</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/stdlib-package.jar</systemPath>
+        </dependency>
 
     </dependencies>
 </project>
