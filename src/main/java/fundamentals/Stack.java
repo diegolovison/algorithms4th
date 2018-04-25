@@ -2,7 +2,14 @@ package fundamentals;
 
 import java.util.Iterator;
 
+/**
+ * LIFO order
+ * @param <Item>
+ */
 public class Stack<Item> implements Iterable<Item> {
+
+    private ListIterator.Node<Item> first;
+    private int size;
 
     /**
      * Create an empty stack
@@ -16,7 +23,11 @@ public class Stack<Item> implements Iterable<Item> {
      * @param item an item
      */
     public void push(Item item) {
-
+        ListIterator.Node oldFirst = first;
+        first = new ListIterator.Node();
+        first.item = item;
+        first.next = oldFirst;
+        size++;
     }
 
     /**
@@ -24,7 +35,10 @@ public class Stack<Item> implements Iterable<Item> {
      * @return item removed
      */
     public Item pop() {
-        return null;
+        Item item = first.item;
+        first = first.next;
+        size--;
+        return item;
     }
 
     /**
@@ -32,7 +46,7 @@ public class Stack<Item> implements Iterable<Item> {
      * @return true if the stack is empty
      */
     public boolean isEmpty() {
-        return false;
+        return size == 0;
     }
 
     /**
@@ -41,7 +55,7 @@ public class Stack<Item> implements Iterable<Item> {
      * @return items in the stack
      */
     public int size() {
-        return 0;
+        return size;
     }
 
     /**
@@ -50,6 +64,6 @@ public class Stack<Item> implements Iterable<Item> {
      */
     @Override
     public Iterator<Item> iterator() {
-        return null;
+        return new ListIterator<>(first);
     }
 }
