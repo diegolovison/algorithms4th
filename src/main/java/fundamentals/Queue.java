@@ -2,7 +2,16 @@ package fundamentals;
 
 import java.util.Iterator;
 
+/**
+ * FIFO order
+ *
+ * @param <Item>
+ */
 public class Queue<Item> implements Iterable<Item> {
+
+    private ListIterator.Node<Item> first;
+    private ListIterator.Node<Item> last;
+    private int size;
 
     /**
      * Create an empty queue
@@ -16,6 +25,16 @@ public class Queue<Item> implements Iterable<Item> {
      * @param item an item
      */
     public void enqueue(Item item) {
+        ListIterator.Node<Item> oldLast = last;
+        last = new ListIterator.Node<>();
+        last.item = item;
+        last.next = null;
+        if (isEmpty()) {
+            first = last;
+        } else {
+            oldLast.next = last;
+        }
+        size++;
     }
 
     /**
@@ -24,7 +43,11 @@ public class Queue<Item> implements Iterable<Item> {
      * @return item to be removed
      */
     public Item dequeue() {
-        return null;
+        Item item = first.item;
+        first = first.next;
+        if (isEmpty()) last = null;
+        size--;
+        return item;
     }
 
     /**
@@ -32,7 +55,7 @@ public class Queue<Item> implements Iterable<Item> {
      * @return true if queue is empty
      */
     public boolean isEmpty() {
-        return false;
+        return size == 0;
     }
 
     /**
@@ -40,7 +63,7 @@ public class Queue<Item> implements Iterable<Item> {
      * @return number of items
      */
     public int size() {
-        return 0;
+        return size;
     }
 
     /**
@@ -49,6 +72,6 @@ public class Queue<Item> implements Iterable<Item> {
      */
     @Override
     public Iterator<Item> iterator() {
-        return null;
+        return new ListIterator<>(last);
     }
 }
