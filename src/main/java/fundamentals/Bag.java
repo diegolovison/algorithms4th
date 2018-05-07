@@ -2,7 +2,14 @@ package fundamentals;
 
 import java.util.Iterator;
 
+/**
+ * LIFO order, but the order is not relevant
+ * @param <Item>
+ */
 public class Bag<Item> implements Iterable<Item> {
+
+    private ListIterator.Node<Item> first;
+    private int size;
 
     /**
      * Create an empty bag
@@ -15,6 +22,11 @@ public class Bag<Item> implements Iterable<Item> {
      * @param item an item
      */
     public void add(Item item) {
+        ListIterator.Node<Item> oldFirst = first;
+        first = new ListIterator.Node<>();
+        first.item = item;
+        first.next = oldFirst;
+        size++;
     }
 
     /**
@@ -22,7 +34,7 @@ public class Bag<Item> implements Iterable<Item> {
      * @return true if the stack is empty
      */
     public boolean isEmpty() {
-        return false;
+        return size == 0;
     }
 
     /**
@@ -31,7 +43,7 @@ public class Bag<Item> implements Iterable<Item> {
      * @return number of items in the bag
      */
     public int size() {
-        return 0;
+        return size;
     }
 
     /**
@@ -40,6 +52,6 @@ public class Bag<Item> implements Iterable<Item> {
      */
     @Override
     public Iterator<Item> iterator() {
-        return null;
+        return new ListIterator<>(first);
     }
 }
