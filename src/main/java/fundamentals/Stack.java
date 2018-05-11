@@ -23,8 +23,8 @@ public class Stack<Item> implements Iterable<Item> {
      * @param item an item
      */
     public void push(Item item) {
-        ListIterator.Node oldFirst = first;
-        first = new ListIterator.Node();
+        ListIterator.Node<Item> oldFirst = first;
+        first = new ListIterator.Node<>();
         first.item = item;
         first.next = oldFirst;
         size++;

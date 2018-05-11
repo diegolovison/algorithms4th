@@ -6,7 +6,7 @@ public class ListIterator<Item> implements Iterator<Item> {
 
     private Node<Item> current;
 
-    public ListIterator(Node item) {
+    public ListIterator(Node<Item> item) {
         this.current = item;
     }
 
@@ -24,6 +24,6 @@ public class ListIterator<Item> implements Iterator<Item> {
 
     static class Node<Item> {
         Item item;
-        Node next;
+        Node<Item> next;
     }
 }
