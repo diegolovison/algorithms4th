@@ -1,12 +1,13 @@
 package fundamentals;
 
+import java.io.Serializable;
 import java.util.Iterator;
 
 /**
  * LIFO order, but the order is not relevant
  * @param <Item>
  */
-public class Bag<Item> implements Iterable<Item> {
+public class Bag<Item> implements Iterable<Item>, Serializable {
 
     private ListIterator.Node<Item> first;
     private int size;

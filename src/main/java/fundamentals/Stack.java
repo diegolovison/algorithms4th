@@ -1,12 +1,13 @@
 package fundamentals;
 
+import java.io.Serializable;
 import java.util.Iterator;
 
 /**
  * LIFO order
  * @param <Item>
  */
-public class Stack<Item> implements Iterable<Item> {
+public class Stack<Item> implements Iterable<Item>, Serializable {
 
     private ListIterator.Node<Item> first;
     private int size;

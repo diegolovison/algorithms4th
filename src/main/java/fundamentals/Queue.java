@@ -1,5 +1,6 @@
 package fundamentals;
 
+import java.io.Serializable;
 import java.util.Iterator;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Iterator;
  *
  * @param <Item>
  */
-public class Queue<Item> implements Iterable<Item> {
+public class Queue<Item> implements Iterable<Item>, Serializable {
 
     private ListIterator.Node<Item> first;
     private ListIterator.Node<Item> last;
