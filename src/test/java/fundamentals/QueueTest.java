@@ -45,10 +45,9 @@ public class QueueTest {
         strings.enqueue(data[3]);
         strings.enqueue(data[4]);
 
-        int index = 0;
         Iterator<String> iterator = strings.iterator();
-        while (iterator.hasNext()) {
-            Assert.assertEquals(data[index++], iterator.next());
+        for (int i = 0; i < data.length; i++) {
+            Assert.assertEquals(data[i], iterator.next());
         }
     }
 }

@@ -73,6 +73,6 @@ public class Queue<Item> implements Iterable<Item>, Serializable {
      */
     @Override
     public Iterator<Item> iterator() {
-        return new ListIterator<>(last);
+        return new ListIterator<>(first);
     }
 }

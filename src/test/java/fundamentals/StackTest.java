@@ -45,10 +45,9 @@ public class StackTest {
         strings.push(data[3]);
         strings.push(data[4]);
 
-        int index = 5;
         Iterator<String> iterator = strings.iterator();
-        while (iterator.hasNext()) {
-            Assert.assertEquals(data[--index], iterator.next());
+        for (int i = data.length - 1; i >= 0; i--) {
+            Assert.assertEquals(data[i], iterator.next());
         }
     }
 }
