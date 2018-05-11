@@ -1,5 +1,6 @@
 package fundamentals;
 
+import java.io.Serializable;
 import java.util.Iterator;
 
 public class ListIterator<Item> implements Iterator<Item> {
@@ -22,7 +23,7 @@ public class ListIterator<Item> implements Iterator<Item> {
         return item;
     }
 
-    static class Node<Item> {
+    static class Node<Item> implements Serializable {
         Item item;
         Node<Item> next;
     }
