@@ -7,7 +7,7 @@ import java.util.Iterator;
  * LIFO order
  * @param <Item>
  */
-public class Stack<Item> implements Iterable<Item>, Serializable {
+public class Stack<Item> extends AbstractLinkedList<Item> implements Iterable<Item>, Serializable {
 
     private ListIterator.Node<Item> first;
     private int size;
@@ -43,18 +43,11 @@ public class Stack<Item> implements Iterable<Item>, Serializable {
     }
 
     /**
-     * Is the stack empty?
-     * @return true if the stack is empty
-     */
-    public boolean isEmpty() {
-        return size == 0;
-    }
-
-    /**
      * Number of items in the stack
      *
      * @return items in the stack
      */
+    @Override
     public int size() {
         return size;
     }

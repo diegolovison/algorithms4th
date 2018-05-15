@@ -8,7 +8,7 @@ import java.util.Iterator;
  *
  * @param <Item>
  */
-public class Queue<Item> implements Iterable<Item>, Serializable {
+public class Queue<Item> extends AbstractLinkedList<Item> implements Iterable<Item>, Serializable {
 
     private ListIterator.Node<Item> first;
     private ListIterator.Node<Item> last;
@@ -52,17 +52,10 @@ public class Queue<Item> implements Iterable<Item>, Serializable {
     }
 
     /**
-     * Is the queue empty?
-     * @return true if queue is empty
-     */
-    public boolean isEmpty() {
-        return size == 0;
-    }
-
-    /**
      * number of items in the queuea
      * @return number of items
      */
+    @Override
     public int size() {
         return size;
     }

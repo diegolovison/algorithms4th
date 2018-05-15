@@ -7,7 +7,7 @@ import java.util.Iterator;
  * LIFO order, but the order is not relevant
  * @param <Item>
  */
-public class Bag<Item> implements Iterable<Item>, Serializable {
+public class Bag<Item> extends AbstractLinkedList<Item> implements Iterable<Item>, Serializable {
 
     private ListIterator.Node<Item> first;
     private int size;
@@ -31,18 +31,11 @@ public class Bag<Item> implements Iterable<Item>, Serializable {
     }
 
     /**
-     * Is the bag empty?
-     * @return true if the stack is empty
-     */
-    public boolean isEmpty() {
-        return size == 0;
-    }
-
-    /**
      * Number of items in the bag
      *
      * @return number of items in the bag
      */
+    @Override
     public int size() {
         return size;
     }
